@@ -1,3 +1,6 @@
+@import "bootswatch/dist/darkly/bootstrap.min.css";
+@import "@devexpress/dx-react-grid-bootstrap4/dist/dx-react-grid-bootstrap4.css";
+
 :root {
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -5,7 +8,3 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-
-@import "node_modules/bootswatch/dist/darkly/_variables";
-@import "node_modules/bootstrap/scss/bootstrap";
-@import "node_modules/bootswatch/dist/darkly/_bootswatch";
