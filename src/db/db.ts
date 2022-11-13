@@ -1,6 +1,10 @@
-import Dexie, { Table } from 'dexie';
+import Dexie, { Table, Transaction } from 'dexie';
 import { data as currencies } from 'currency-codes';
 import getSymbolFromCurrency from 'currency-symbol-map';
+
+export interface TypedTransaction extends Transaction {
+  db: Db;
+}
 
 export interface DbTransaction {
   id?: number;
@@ -43,11 +47,11 @@ class Db extends Dexie {
       institutions: '++id, name, *accounts.assetTypeId',
       assetTypes: '++id, &name, symbol, &code',
     });
-    this.seed();
+    this.on('populate', (tx) => this.seed(tx as any));
   }
-  seed() {
-    this.assetTypes.clear();
-    this.assetTypes.bulkAdd(currencies.map(c => {
+  seed(tx: TypedTransaction) {
+    tx.db.assetTypes.clear();
+    tx.db.assetTypes.bulkAdd(currencies.map(c => {
       return ({
         code: c.code,
         name: c.currency,
