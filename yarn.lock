@@ -1394,6 +1394,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"currency-codes@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "currency-codes@npm:2.1.0"
+  dependencies:
+    first-match: ~0.0.1
+    nub: ~0.0.0
+  checksum: 925ba4c729201b447d1612f7949e88b8e2882f7b23b5bf317b8214f818843ab30367a3a8e7f7fa3318c1ff2fbcf78f0be7c06cfe5cd0966ae441368d346a90a5
+  languageName: node
+  linkType: hard
+
+"currency-symbol-map@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "currency-symbol-map@npm:5.1.0"
+  checksum: 7c84dd81bff5703179a816012650b3e11f128e1fa83b7d376acdf8f41d544e9f6036ab08a02521cf365ed9b7a5c34bae276c7f23e0239936165534cb39d52a43
+  languageName: node
+  linkType: hard
+
 "debug@npm:4, debug@npm:^4.1.0, debug@npm:^4.1.1, debug@npm:^4.3.2, debug@npm:^4.3.3, debug@npm:^4.3.4":
   version: 4.3.4
   resolution: "debug@npm:4.3.4"
@@ -2083,6 +2100,13 @@ __metadata:
     locate-path: ^6.0.0
     path-exists: ^4.0.0
   checksum: 07955e357348f34660bde7920783204ff5a26ac2cafcaa28bace494027158a97b9f56faaf2d89a6106211a8174db650dd9f503f9c0d526b1202d5554a00b9095
+  languageName: node
+  linkType: hard
+
+"first-match@npm:~0.0.1":
+  version: 0.0.1
+  resolution: "first-match@npm:0.0.1"
+  checksum: 5ed217591bc59634b9ffa15ad0340401781214827ddca4f17f6854181acac3d05818e389ae1241570ce2311a49655bfb63754da62833a085bbc3217a919bb596
   languageName: node
   linkType: hard
 
@@ -3038,6 +3062,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nub@npm:~0.0.0":
+  version: 0.0.0
+  resolution: "nub@npm:0.0.0"
+  checksum: a84a82a052027ebaa433161af0c7c85ae5a71991d5b6cf7b76ff3bdd4c5667073b6cb391649d9d217ff835b047f6b102b90526f1905ce2a1f618f958ed00bce1
+  languageName: node
+  linkType: hard
+
 "object-assign@npm:^4.1.1":
   version: 4.1.1
   resolution: "object-assign@npm:4.1.1"
@@ -3237,6 +3268,8 @@ __metadata:
     "@vitejs/plugin-react": ^2.0.0
     bootstrap: ^5.2.2
     bootswatch: ^5.2.2
+    currency-codes: ^2.1.0
+    currency-symbol-map: ^5.1.0
     dexie: ^3.2.2
     dexie-react-hooks: ^1.1.1
     eslint: ^8.27.0

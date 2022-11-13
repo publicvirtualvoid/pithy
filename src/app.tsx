@@ -1,27 +1,22 @@
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from './db/db';
 import { Grid, Table, TableHeaderRow } from '@devexpress/dx-react-grid-bootstrap4';
+import { Column } from '@devexpress/dx-react-grid';
 
-const columns = [
+const columns: Column[] = [
   { name: 'id', title: 'ID' },
-  { name: 'product', title: 'Product' },
-  { name: 'owner', title: 'Owner' },
-];
-const rows = [
-  { id: 0, product: 'DevExtreme', owner: 'DevExpress' },
-  { id: 1, product: 'DevExtreme Reactive', owner: 'DevExpress' },
+  { name: 'name', title: 'Name' },
+  { name: 'code', title: 'Code' },
+  { name: 'symbol', title: 'Symbol' },
 ];
 
 function App() {
-  const transactions = useLiveQuery(() => db.transactions.toArray());
+  const transactions = useLiveQuery(() => db.assetTypes.toArray()) ?? [];
   return (
     <div>
-      <h1>Hello world!</h1>
-
-      {transactions?.map((t) => <li key={t.id}>{t.date.toString()}</li>)}
       <div className="card">
         <Grid
-          rows={rows}
+          rows={transactions}
           columns={columns}
         >
           <Table />
