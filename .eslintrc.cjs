@@ -6,6 +6,7 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
   ],
   overrides: [
@@ -26,8 +27,6 @@ module.exports = {
       pragma: 'React', // Pragma to use, default to "React"
       fragment: 'Fragment', // Fragment to use (may be a property of <pragma>), default to "Fragment"
       version: 'detect', // React version. "detect" automatically picks the version you have installed.
-      // You can also use `16.0`, `16.3`, etc, if you want to override the detected value.
-      // It will default to "latest" and warn if missing, and to "detect" in the future
     },
     propWrapperFunctions: [
       // The names of any function used to wrap propTypes, e.g. `forbidExtraProps`.
@@ -74,8 +73,9 @@ module.exports = {
       'error',
       'always',
     ],
-    'no-unused-vars': 'warn',
+    'no-unused-vars': 'off',
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
+    '@typescript-eslint/no-explicit-any': 'off'
   },
 };
