@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tauri + React + TS</title>
-  </head>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tauri + React + TS</title>
+  <script>
+    // var reactMain = document.createElement('script');
+    // reactMain.type = 'module';
+    // reactMain.onload = function () {
+    //   console.warn("Frontend Loaded")
+    // };
+    // reactMain.src = "/src/main.tsx"
+    // var foo = window.__TAURI__.invoke("env").then(envString => {
+    //   if (envString.toLowerCase() != "dev" || true) {
+    //     document.head.appendChild(reactMain);
+    //     return
+    //   }
+    //   var reactDevTools = document.createElement('script');
+    //   reactDevTools.onload = function () {
+    //     console.warn("Running in Debug! React DevTools enabled.")
+    //     document.head.appendChild(reactMain);
+    //   };
+    //   reactDevTools.src = "http://localhost:8097";
+    //   setTimeout(() => {
+    //     document.head.appendChild(reactDevTools);
+    //   }, 2000);
+    // });
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script src="http://localhost:8097"></script>
+  <script type="module" src="src/main.tsx"></script>
+
+</body>
+
 </html>
