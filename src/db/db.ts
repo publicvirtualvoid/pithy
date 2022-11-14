@@ -49,15 +49,22 @@ class Db extends Dexie {
     });
     this.on('populate', (tx) => this.seed(tx as any));
   }
-  seed(tx: TypedTransaction) {
-    tx.db.assetTypes.clear();
-    tx.db.assetTypes.bulkAdd(currencies.map(c => {
+  async seed(tx: TypedTransaction) {
+    const assetTypes = currencies.map(c => {
       return ({
         code: c.code,
         name: c.currency,
         symbol: getSymbolFromCurrency(c.code),
-      });
-    }));
+      } as DbAssetType);
+    });
+    (await tx.db.assetTypes.bulkAdd(assetTypes, { allKeys: true })).forEach((key, i) => assetTypes[i].id = key);
+    const institutions = [...Array(5).keys()].map(i => ({
+      name: `Institute ${i}`,
+      accounts: Array(Math.round(Math.random() * 10)).map(() => ({
+        assetTypeId: assetTypes.at(Math.floor(Math.random() * assetTypes.length))?.id
+      }))
+    } as DbInstitution));
+    tx.db.institutions.bulkAdd(institutions);
   }
 }
 
