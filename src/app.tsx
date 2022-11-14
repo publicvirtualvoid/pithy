@@ -1,15 +1,7 @@
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from './db/db';
 import { Grid, Table, TableHeaderRow } from '@devexpress/dx-react-grid-bootstrap4';
-import { Column } from '@devexpress/dx-react-grid';
 import { Tabs, Tab } from 'react-bootstrap';
-
-const columns: Column[] = [
-  { name: 'id', title: 'ID' },
-  { name: 'name', title: 'Name' },
-  { name: 'code', title: 'ISO Code' },
-  { name: 'symbol', title: 'Symbol' },
-];
 
 function App() {
   return (
@@ -20,7 +12,7 @@ function App() {
           return (<Tab key={key} eventKey={key} title={key}>
             <Grid
               rows={rows}
-              columns={columns}
+              columns={rows.length > 0 ? Object.keys(rows[0]).map(k => ({ name: k, title: k })) : [{ name: 'no data', title: 'no data' }]}
             >
               <Table />
               <TableHeaderRow />
