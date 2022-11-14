@@ -12,7 +12,7 @@ function App() {
     <>
       <Tabs>
         {(db as any)._storeNames.map((key: string) => {
-          const rows = useLiveQuery(() => ((db as any)[key] as DbTable<any, number>).toArray()) as any[];
+          const rows = useLiveQuery(() => ((db as any)[key] as DbTable<any, number>).toArray()) as any[] ?? [];
           const columns = rows.length > 0 ? Object.keys(rows[0]).map(k => ({ name: k, title: k })) : [{ name: 'no data', title: 'no data' }];
           return (<Tab key={key} eventKey={key} title={key}>
             <Grid
