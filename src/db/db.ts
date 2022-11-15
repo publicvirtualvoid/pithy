@@ -1,6 +1,8 @@
 import Dexie, { Table, Transaction } from 'dexie';
 import { data as currencies } from 'currency-codes';
 import getSymbolFromCurrency from 'currency-symbol-map';
+import { sample } from 'lodash';
+import { DateTime } from 'luxon';
 
 export interface TypedTransaction extends Transaction {
   db: Db;
@@ -8,6 +10,7 @@ export interface TypedTransaction extends Transaction {
 
 export interface DbTransaction {
   id?: number;
+  institutionId: number;
   accountId: number;
   amount: number;
   date: Date;
@@ -16,6 +19,8 @@ export interface DbTransaction {
 export interface DbTag {
   id?: number;
   name: string;
+  /** Parent */
+  tagId: number;
 }
 export interface DbInstitution {
   id?: number;
@@ -41,7 +46,7 @@ class Db extends Dexie {
       autoOpen: true,
     });
     this.version(1).stores({
-      transactions: '++id, accountId, amount, date, *tagIds',
+      transactions: '++id, institutionId, accountId, amount, date, *tagIds',
       tags: '++id, name',
       institutions: '++id, name, *accounts.assetTypeId',
       assetTypes: '++id, &name, symbol, &code',
@@ -63,7 +68,18 @@ class Db extends Dexie {
         assetTypeId: Math.floor(Math.random() * assetTypes.length)
       }))
     } as DbInstitution));
-    tx.db.institutions.bulkAdd(institutions);
+    (await tx.db.institutions.bulkAdd(institutions, { allKeys: true })).forEach((key, i) => institutions[i].id = key);
+    const transactions = [...Array(5000).keys()].map(i => {
+      const institution = sample(institutions);
+      return {
+        institutionId: institution?.id,
+        accountId: Math.floor(Math.random() * institution!.accounts.length),
+        amount: Math.random() * 5000,
+        date: DateTime.now().minus({ minutes: i * 30 }).toJSDate(),
+        tagIds: []
+      } as DbTransaction;
+    });
+    (await tx.db.transactions.bulkAdd(transactions, { allKeys: true })).forEach((key, i) => transactions[i].id = key);
   }
 }
 

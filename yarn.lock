@@ -819,6 +819,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/lodash@npm:^4":
+  version: 4.14.189
+  resolution: "@types/lodash@npm:4.14.189"
+  checksum: 096d1e0954794fb76bd6a0ea443067f02004b53e3c59ac6e3fed88817a1468fc2e6614abdf44341f5e0fdff5f9a3c94a934cc9ff7126e07efbcd94355a21fe45
+  languageName: node
+  linkType: hard
+
+"@types/luxon@npm:^3":
+  version: 3.1.0
+  resolution: "@types/luxon@npm:3.1.0"
+  checksum: 04768029342ad76fc2a9339436c143ea64797b35cf9b03ddded787c13eae30f0ca1246e51c2c5365ed912f98068e13a967a3931b137eb4585248a0ad7ec3fa86
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:*, @types/node@npm:^18.7.10":
   version: 18.11.9
   resolution: "@types/node@npm:18.11.9"
@@ -3398,7 +3412,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.10":
+"lodash@npm:^4.17.10, lodash@npm:^4.17.21":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: eb835a2e51d381e561e508ce932ea50a8e5a68f4ebdd771ea240d3048244a8d13658acbd502cd4829768c56f2e16bdd4340b9ea141297d472517b83868e677f7
@@ -3453,6 +3467,13 @@ __metadata:
   version: 7.14.1
   resolution: "lru-cache@npm:7.14.1"
   checksum: d72c6713c6a6d86836a7a6523b3f1ac6764768cca47ec99341c3e76db06aacd4764620e5e2cda719a36848785a52a70e531822dc2b33fb071fa709683746c104
+  languageName: node
+  linkType: hard
+
+"luxon@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "luxon@npm:3.1.0"
+  checksum: f8a850b759ba7a2e009d904c522ed7bc264bf4add57578f8948e52a0ed96b627b025b5aad8032295b570ae19fac41f0ffab91bdb128715fb0cc020798a7ba886
   languageName: node
   linkType: hard
 
@@ -4019,6 +4040,8 @@ __metadata:
     "@types/bootstrap": ^5
     "@types/eslint": ^8
     "@types/flat": ^5
+    "@types/lodash": ^4
+    "@types/luxon": ^3
     "@types/node": ^18.7.10
     "@types/react": ^18.0.15
     "@types/react-dom": ^18.0.6
@@ -4035,6 +4058,8 @@ __metadata:
     eslint: ^8.27.0
     eslint-plugin-react: latest
     flat: ^5.0.2
+    lodash: ^4.17.21
+    luxon: ^3.1.0
     react: ^18.2.0
     react-bootstrap: ^2.6.0
     react-devtools: ^4.26.1

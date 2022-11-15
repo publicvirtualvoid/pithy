@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { Column, RowDetailState } from '@devexpress/dx-react-grid';
 import { flatten } from 'flat';
 import { defaultColumnSort } from './util';
+import { DataTypeProvider } from '@devexpress/dx-react-grid';
 
 function App() {
   const [expandedRowIds, setExpandedRowIds] = useState([2, 5] as (string | number)[]);
@@ -30,6 +31,10 @@ function App() {
               <RowDetailState
                 expandedRowIds={expandedRowIds}
                 onExpandedRowIdsChange={setExpandedRowIds}
+              />
+              <DataTypeProvider
+                for={['date']}
+                formatterComponent={({ value }) => value.toString()}
               />
               <Table />
               <TableHeaderRow />
