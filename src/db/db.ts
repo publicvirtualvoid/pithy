@@ -54,6 +54,8 @@ class Db extends Dexie {
     this.on('populate', (tx) => this.seed(tx as any));
   }
   async seed(tx: TypedTransaction) {
+    const startTime = DateTime.now();
+    console.log('Seeding database');
     const assetTypes = currencies.map(c => {
       return ({
         code: c.code,
@@ -80,6 +82,8 @@ class Db extends Dexie {
       } as DbTransaction;
     });
     (await tx.db.transactions.bulkAdd(transactions, { allKeys: true })).forEach((key, i) => transactions[i].id = key);
+
+    console.log(`Seeding completed (${DateTime.now().diff(startTime).milliseconds}ms)`);
   }
 }
 
