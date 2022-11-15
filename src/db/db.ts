@@ -60,8 +60,8 @@ class Db extends Dexie {
     (await tx.db.assetTypes.bulkAdd(assetTypes, { allKeys: true })).forEach((key, i) => assetTypes[i].id = key);
     const institutions = [...Array(5).keys()].map(i => ({
       name: `Institute ${i}`,
-      accounts: Array(Math.round(Math.random() * 10)).map(() => ({
-        assetTypeId: assetTypes.at(Math.floor(Math.random() * assetTypes.length))?.id
+      accounts: [...Array(3).keys()].map(() => ({
+        assetTypeId: Math.floor(Math.random() * assetTypes.length)
       }))
     } as DbInstitution));
     tx.db.institutions.bulkAdd(institutions);

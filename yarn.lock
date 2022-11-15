@@ -796,6 +796,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/flat@npm:^5":
+  version: 5.0.2
+  resolution: "@types/flat@npm:5.0.2"
+  checksum: e21d51d872e788bdb381887c2880f717ba4377beb4055078136127134858efd15044655610f1fce4832d9a103ded468a25335203fc53f36db08edd5ab5a8b3db
+  languageName: node
+  linkType: hard
+
 "@types/json-schema@npm:*, @types/json-schema@npm:^7.0.9":
   version: 7.0.11
   resolution: "@types/json-schema@npm:7.0.11"
@@ -2462,6 +2469,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"flat@npm:^5.0.2":
+  version: 5.0.2
+  resolution: "flat@npm:5.0.2"
+  bin:
+    flat: cli.js
+  checksum: 12a1536ac746db74881316a181499a78ef953632ddd28050b7a3a43c62ef5462e3357c8c29d76072bb635f147f7a9a1f0c02efef6b4be28f8db62ceb3d5c7f5d
+  languageName: node
+  linkType: hard
+
 "flatted@npm:^3.1.0":
   version: 3.2.7
   resolution: "flatted@npm:3.2.7"
@@ -4002,6 +4018,7 @@ __metadata:
     "@tauri-apps/cli": ^1.1.0
     "@types/bootstrap": ^5
     "@types/eslint": ^8
+    "@types/flat": ^5
     "@types/node": ^18.7.10
     "@types/react": ^18.0.15
     "@types/react-dom": ^18.0.6
@@ -4017,6 +4034,7 @@ __metadata:
     dexie-react-hooks: ^1.1.1
     eslint: ^8.27.0
     eslint-plugin-react: latest
+    flat: ^5.0.2
     react: ^18.2.0
     react-bootstrap: ^2.6.0
     react-devtools: ^4.26.1

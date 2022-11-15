@@ -21,6 +21,7 @@
     "currency-symbol-map": "^5.1.0",
     "dexie": "^3.2.2",
     "dexie-react-hooks": "^1.1.1",
+    "flat": "^5.0.2",
     "react": "^18.2.0",
     "react-bootstrap": "^2.6.0",
     "react-dom": "^18.2.0"
@@ -29,6 +30,7 @@
     "@tauri-apps/cli": "^1.1.0",
     "@types/bootstrap": "^5",
     "@types/eslint": "^8",
+    "@types/flat": "^5",
     "@types/node": "^18.7.10",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
