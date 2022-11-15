@@ -57,7 +57,8 @@ module.exports = {
     ],
   },
   rules: {
-    indent: [
+    'indent': 'off',
+    '@typescript-eslint/indent': [
       'error',
       2,
     ],
