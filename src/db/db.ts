@@ -32,11 +32,10 @@ export interface DbAssetType {
 }
 
 class Db extends Dexie {
-  transactions!: Table<DbTransaction, number>;
-  tags!: Table<DbTag, number>;
-  institutions!: Table<DbInstitution, number>;
-  assetTypes!: Table<DbAssetType, number>;
-
+  readonly transactions!: Table<DbTransaction, number>;
+  readonly tags!: Table<DbTag, number>;
+  readonly institutions!: Table<DbInstitution, number>;
+  readonly assetTypes!: Table<DbAssetType, number>;
   constructor() {
     super('db', {
       autoOpen: true,

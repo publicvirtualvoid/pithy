@@ -4,17 +4,16 @@ import { Grid, Table, TableHeaderRow, TableRowDetail } from '@devexpress/dx-reac
 import { Tabs, Tab } from 'react-bootstrap';
 import { useState } from 'react';
 import { Column, RowDetailState } from '@devexpress/dx-react-grid';
-import { Table as DbTable } from 'dexie';
 import { flatten } from 'flat';
 import { defaultColumnSort } from './util';
 
 function App() {
   const [expandedRowIds, setExpandedRowIds] = useState([2, 5] as (string | number)[]);
-  const collections = ((db as any)._storeNames as string[]).map((key: string) => {
-    const rows: Record<string, any>[] = useLiveQuery(async () => (await ((db as any)[key] as DbTable<any, number>).toArray()).map((r) => flatten(r))) ?? [];
+  const collections = db.tables.map((table) => {
+    const rows: Record<string, any>[] = useLiveQuery(async () => (await table.toArray()).map((r) => flatten(r))) ?? [];
     const columns = (rows.length > 0 ? Object.keys(rows[0]).map(k => ({ name: k, title: k })) : [{ name: 'no data', title: 'no data' }]).sort(defaultColumnSort);
     return [
-      key,
+      table.name,
       rows,
       columns
     ] as [string, Record<string, any>[], Column[]];
